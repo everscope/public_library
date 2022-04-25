@@ -14,6 +14,5 @@ namespace Public_Library.Controllers
             _logger = logger;
         }
 
-
     }
 }
