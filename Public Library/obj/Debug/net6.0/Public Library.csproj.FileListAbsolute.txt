@@ -1,0 +1,27 @@
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\appsettings.Development.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\appsettings.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.exe
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.deps.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.runtimeconfig.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.pdb
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Microsoft.OpenApi.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.csproj.AssemblyReference.cache
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.AssemblyInfoInputs.cache
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.AssemblyInfo.cs
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.csproj.CoreCompileInputs.cache
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.MvcApplicationPartsAssemblyInfo.cs
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.MvcApplicationPartsAssemblyInfo.cache
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\staticwebassets.build.json
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\staticwebassets.development.json
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\scopedcss\bundle\Public Library.styles.css
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.csproj.CopyComplete
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.dll
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\refint\Public Library.dll
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.pdb
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\Public Library.genruntimeconfig.cache
+F:\Projects\Public Library\Public Library\Public Library\obj\Debug\net6.0\ref\Public Library.dll
