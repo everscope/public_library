@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Public_Library.LIB;
 
 namespace Public_Library.Controllers
 {
     [ApiController]
-    [Route("[registration]")]
+    [Route("registration/")]
     public class RegistrationController : ControllerBase
     {
 
@@ -13,6 +14,12 @@ namespace Public_Library.Controllers
         {
             _logger = logger;
         }
+
+        //[HttpPost("new")]
+        //public void CreateUser(Patron patron)
+        //{
+
+        //}
 
     }
 }

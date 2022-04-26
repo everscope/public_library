@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Public_Library;
+using Public_Library.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
