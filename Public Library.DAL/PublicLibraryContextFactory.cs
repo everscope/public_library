@@ -20,7 +20,7 @@ namespace Public_Library.DAL
             var configuration = configurationBuilder.Build();
             string connection = configuration.GetConnectionString("DatabaseConnection");
 
-            var optionsBuilder = new DbContextOptionsBuilder<PublicLibraryContext>();
+            var optionsBuilder = new DbContextOptionsBuilder();
             optionsBuilder.UseSqlServer(connection);
             return new PublicLibraryContext(optionsBuilder.Options);
         }

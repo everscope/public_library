@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
 namespace Public_Library.DAL
@@ -12,14 +13,15 @@ namespace Public_Library.DAL
      
         private PublicLibraryContext _context;
 
-        public DatabaseReader(PublicLibraryContext context)
+        public DatabaseReader(IDbContextFactory<PublicLibraryContext> contextFactory)
         {
-            _context = context;
+            _context = contextFactory.CreateDbContext();
         }
 
         public void AddPatron(Patron patron)
         {
             _context.Patrons.Add(patron);
+            _context.SaveChanges();
         }
 
         public void DeletePatron()

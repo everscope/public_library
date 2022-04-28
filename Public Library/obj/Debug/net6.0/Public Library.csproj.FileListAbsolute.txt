@@ -83,3 +83,5 @@ F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Public Library.DAL.pdb
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Humanizer.dll
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\AutoMapper.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

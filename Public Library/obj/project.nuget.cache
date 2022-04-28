@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "apUWBzWLL1xxb2tTbwOEYvqdwIdeMTcwma1t53d36cVC99mXBeONoSTLDc2+94BJgaA09giPtOcFPa0RAce6Lg==",
+  "dgSpecHash": "+sOnF3PCgkkLchBolrFEcE2ID/kus2P682MaqoQrFCIUyrtyw17XUx/XO8SEg+bDKX4ynr1Bojo19oGK37MspQ==",
   "success": true,
   "projectFilePath": "F:\\Projects\\Public Library\\Public Library\\Public Library\\Public Library.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\im242\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\im242\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
