@@ -25,7 +25,7 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("new")]
-        public IActionResult CreateUser(PatronInputModel patron)
+        public IActionResult CreatePatron(PatronInputModel patron)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult DeleteUser(PatronInputModel patron)
+        public IActionResult DeletePatron(PatronInputModel patron)
         {
             try
             {
