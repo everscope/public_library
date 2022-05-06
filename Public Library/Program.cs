@@ -13,24 +13,26 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContextFactory<PublicLibraryContext>();
-//builder.Services.AddDbContext<PublicLibraryContext, PublicLibraryContext>();
+builder.Services.AddDbContext<PublicLibraryContext>(options
+    => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
 builder.Services.AddAutoMapper(typeof(PatronProfile));
 
-using (var db = new PublicLibraryContextFactory().CreateDbContext(new string[0]))
+var app = builder.Build();
+
+
+using (var db = new PublicLibraryContext(new DbContextOptionsBuilder()
+    .UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")).Options))
 {
     db.Database.EnsureCreated();
 }
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
 
 app.UseHttpsRedirection();
 

@@ -13,9 +13,9 @@ namespace Public_Library.DAL
      
         private PublicLibraryContext _context;
 
-        public DatabaseReader(IDbContextFactory<PublicLibraryContext> contextFactory)
+        public DatabaseReader(PublicLibraryContext context)
         {
-            _context = contextFactory.CreateDbContext();
+            _context = context;
         }
 
         public void AddPatron(Patron patron)
