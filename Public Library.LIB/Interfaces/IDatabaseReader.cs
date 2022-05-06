@@ -9,7 +9,7 @@ namespace Public_Library.LIB.Interfaces
     public interface IDatabaseReader
     {
         public void AddPatron(Patron patron);
-        public void DeletePatron();
+        public void DeletePatron(Patron patron);
         public void AddBook();
         public void MoveBook();
         public void AddIssue();

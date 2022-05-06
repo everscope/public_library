@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
+using System.Net;
 
 namespace Public_Library.Controllers
 {
@@ -24,10 +25,34 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("new")]
-        public void CreateUser(PatronInputModel patron)
+        public IActionResult CreateUser(PatronInputModel patron)
         {
-            Patron newPatron = _mapper.Map<Patron>(patron);
-            _databaseReader.AddPatron(newPatron);
+            try
+            {
+                Patron newPatron = _mapper.Map<Patron>(patron);
+                _databaseReader.AddPatron(newPatron);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("delete")]
+        public IActionResult DeleteUser(PatronInputModel patron)
+        {
+            try
+            {
+                Patron newPatron = _mapper.Map<Patron>(patron);
+                _databaseReader.DeletePatron(newPatron);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest("Current patron can not be found");
+            }
         }
 
     }
