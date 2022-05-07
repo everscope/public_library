@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Public_Library;
+using Public_Library.Controllers;
 using Public_Library.DAL;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
 using Public_Library.Maps;
+using Serilog;
+using Serilog.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,22 @@ builder.Services.AddDbContext<PublicLibraryContext>(options
     => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
 builder.Services.AddAutoMapper(typeof(PatronProfile));
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .Destructure.ByTransforming<PatronInputModel>(
+        p => new {Name = p.Name, Surname = p.Surname, Email = p.Email, Password = p.Password})
+    .WriteTo.Console()
+    .WriteTo.File("Logs/MainLogs/MainLogs.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Logger(patronLogger => patronLogger
+                    .Filter.ByIncludingOnly(Matching.FromSource<PatronController>()))
+                    .WriteTo.File("Logs/PatronLogs/PatronLog.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Logger(bookLogger => bookLogger
+                    .Filter.ByIncludingOnly(Matching.FromSource<BookController>()))
+                    .WriteTo.File("Logs/BookLogs/BookLog.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Logger(attandanceLogger => attandanceLogger
+                    .Filter.ByIncludingOnly(Matching.FromSource<AttendanceController>()))
+                    .WriteTo.File("Logs/AttendanceLogs/AttendanceLogs.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 var app = builder.Build();
 
