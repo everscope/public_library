@@ -7,6 +7,7 @@ using Public_Library.LIB.Interfaces;
 using Public_Library.Maps;
 using Serilog;
 using Serilog.Filters;
+using Serilog.Formatting.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,16 +26,24 @@ Log.Logger = new LoggerConfiguration()
     .Destructure.ByTransforming<PatronInputModel>(
         p => new {Name = p.Name, Surname = p.Surname, Email = p.Email, Password = p.Password})
     .WriteTo.Console()
-    .WriteTo.File("Logs/MainLogs/MainLogs.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File("Logs/AllLogs/AllLogs.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAllLogs/AllLogs.json",
+                                                rollingInterval: RollingInterval.Day)
     .WriteTo.Logger(patronLogger => patronLogger
                     .Filter.ByIncludingOnly(Matching.FromSource<PatronController>()))
                     .WriteTo.File("Logs/PatronLogs/PatronLog.txt", rollingInterval: RollingInterval.Day)
+                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonPatronLogs/PatronLogs.json", 
+                                                rollingInterval: RollingInterval.Day)
     .WriteTo.Logger(bookLogger => bookLogger
                     .Filter.ByIncludingOnly(Matching.FromSource<BookController>()))
                     .WriteTo.File("Logs/BookLogs/BookLog.txt", rollingInterval: RollingInterval.Day)
+                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonBookLogs/BookLogs.json",
+                                                rollingInterval: RollingInterval.Day)
     .WriteTo.Logger(attandanceLogger => attandanceLogger
                     .Filter.ByIncludingOnly(Matching.FromSource<AttendanceController>()))
                     .WriteTo.File("Logs/AttendanceLogs/AttendanceLogs.txt", rollingInterval: RollingInterval.Day)
+                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAttendanceLogs/AttendanceLogs.json",
+                                                rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var app = builder.Build();

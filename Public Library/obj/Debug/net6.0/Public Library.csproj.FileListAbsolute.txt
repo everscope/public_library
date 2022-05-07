@@ -89,3 +89,7 @@ F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\System
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\System.Web.Http.dll
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Newtonsoft.Json.dll
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonAllLogs\AllLogs20220507.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonAttendanceLogs\AttendanceLogs20220507.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonBookLogs\BookLogs20220507.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonPatronLogs\PatronLogs20220507.json
