@@ -1,83 +1,46 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Public_Library.LIB;
+using Public_Library.LIB.Interfaces;
+using Serilog;
 
 namespace Public_Library.Controllers
 {
+    [ApiController]
+    [Route("book/")]
     public class BookController : Controller
     {
-        // GET: Book
-        public ActionResult Index()
+        private readonly IMapper _mapper;
+        private readonly IDatabaseReader _databaseReader;
+
+        public BookController(IMapper mapper,
+                                IDatabaseReader databaseReader)
         {
-            return View();
+            _mapper = mapper;
+            _databaseReader = databaseReader;
         }
 
-        // GET: Book/Details/5
-        public ActionResult Details(int id)
+        [HttpPost("new")]
+        public IActionResult AddBook(BookInputModel book)
         {
-            return View();
-        }
-
-        // GET: Book/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Book/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
+            Book newBook = _mapper.Map<Book>(book);
             try
             {
-                return RedirectToAction(nameof(Index));
+                _databaseReader.AddBook(newBook);
+                Log.ForContext<BookController>().Information("Book {Book} has been added", book);
+                return Ok();
             }
             catch
             {
-                return View();
+                Log.ForContext<BookController>().Information("Book {Book} can not be added", book);
+                return BadRequest();
             }
         }
 
-        // GET: Book/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Book/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Book/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Book/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //public IActionResult RemoveBook()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

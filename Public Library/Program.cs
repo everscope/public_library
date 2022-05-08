@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PublicLibraryContext>(options
     => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
-builder.Services.AddAutoMapper(typeof(PatronProfile));
+builder.Services.AddAutoMapper(typeof(Program));
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .Destructure.ByTransforming<PatronInputModel>(

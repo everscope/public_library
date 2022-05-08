@@ -46,9 +46,10 @@ namespace Public_Library.DAL
             _context.SaveChanges();
         }
 
-        public void AddBook()
+        public void AddBook(Book book)
         {
-
+            _context.Books.Add(book);
+            _context.SaveChanges();
         }
 
         public void MoveBook()

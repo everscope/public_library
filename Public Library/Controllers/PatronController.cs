@@ -11,17 +11,12 @@ namespace Public_Library.Controllers
     [Route("patron/")]
     public class PatronController : ControllerBase
     {
-
-        private readonly ILogger<PatronController> _logger;
         private readonly IMapper _mapper;
         private readonly IDatabaseReader _databaseReader;
 
-        public PatronController(ILogger<PatronController> logger,
-                                IMapper mapper,
+        public PatronController(IMapper mapper,
                                 IDatabaseReader databaseReader)
         {
-            var thisLogger = Log.ForContext<PatronController>();
-            _logger = logger;
             _mapper = mapper;
             _databaseReader = databaseReader;
         }

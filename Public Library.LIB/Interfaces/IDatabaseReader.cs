@@ -10,7 +10,7 @@ namespace Public_Library.LIB.Interfaces
     {
         public void AddPatron(Patron patron);
         public void DeletePatron(Patron patron);
-        public void AddBook();
+        public void AddBook(Book book);
         public void MoveBook();
         public void AddIssue();
     }
