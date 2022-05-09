@@ -89,6 +89,12 @@ namespace Public_Library.DAL
         {
             return await _context.Books.ToListAsync();
         }
+        
+        public async Task<Book> GetBookById(string id)
+        {
+            return await _context.Books.SingleAsync(p => p.Id == id);
+        }
+
 
         public async Task MoveBook(string id, string placement)
         {

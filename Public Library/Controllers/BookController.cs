@@ -97,5 +97,19 @@ namespace Public_Library.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet("get/{id}")]
+        public async Task<IActionResult> GetBookById(string id)
+        {
+            try
+            {
+                Book book = await _databaseReader.GetBookById(id);
+                return Ok(book);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }
