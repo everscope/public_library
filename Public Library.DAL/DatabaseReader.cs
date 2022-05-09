@@ -90,9 +90,13 @@ namespace Public_Library.DAL
             return await _context.Books.ToListAsync();
         }
 
-        public async Task MoveBook()
+        public async Task MoveBook(string id, string placement)
         {
-            throw new NotImplementedException();
+            var bookToChange =await _context.Books.SingleAsync(p => p.Id == id);
+
+            bookToChange.Placement = placement;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task AddIssue()

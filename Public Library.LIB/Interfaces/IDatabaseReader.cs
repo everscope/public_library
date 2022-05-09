@@ -15,7 +15,7 @@ namespace Public_Library.LIB.Interfaces
         public Task<string []> GetBookId(BookInputModel book);
         public Task<List<Book>> GetAllBooks();
         public Task DeleteBook(string id);
-        public Task MoveBook();
+        public Task MoveBook(string id, string placement);
         public Task AddIssue();
     }
 }

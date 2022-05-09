@@ -71,13 +71,26 @@ namespace Public_Library.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetBook()
+        public async Task<IActionResult> GetAllBooks()
         {
             try
             {
                 List<Book> books = await _databaseReader.GetAllBooks();
-                List<BookDisplayModel> booksToDisplay = _mapper.Map<List<BookDisplayModel>>(books);
-                return Ok(booksToDisplay);
+                return Ok(books);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("move/{id}")]
+        public async Task<IActionResult> MoveBook(string id, string position)
+        {
+            try
+            {
+                await _databaseReader.MoveBook(id, position);
+                return Ok();
             }
             catch
             {
