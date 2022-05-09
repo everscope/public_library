@@ -25,6 +25,8 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .Destructure.ByTransforming<PatronInputModel>(
         p => new {Name = p.Name, Surname = p.Surname, Email = p.Email, Password = p.Password})
+    .Destructure.ByTransforming<BookInputModel>(
+        p => new {Title = p.Title, Author = p.Author})
     .WriteTo.Console()
     .WriteTo.File("Logs/AllLogs/AllLogs.txt", rollingInterval: RollingInterval.Day)
     .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAllLogs/AllLogs.json",

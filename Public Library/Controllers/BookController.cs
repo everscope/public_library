@@ -34,13 +34,38 @@ namespace Public_Library.Controllers
             catch
             {
                 Log.ForContext<BookController>().Information("Book {Book} can not be added", book);
-                return BadRequest();
+                return BadRequest("Error while adding book");
             }
         }
 
-        //public IActionResult RemoveBook()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        [HttpDelete("delete/{id}")]
+        public IActionResult RemoveBook(string id)
+        {
+            try
+            {
+                _databaseReader.DeleteBook(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest("Can not delite this book, probably it does not exists");
+            }
+        }
+
+        [HttpGet("getId")]
+        public IActionResult GetBookId(BookInputModel book)
+        {
+            try
+            {
+                string [] id = _databaseReader.GetBookId(book);
+                Log.ForContext<BookController>().Information("Requested book {book} id," +
+                                                        " returned {id}", book, id);
+                return Ok(id);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

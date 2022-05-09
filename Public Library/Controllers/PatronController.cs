@@ -39,7 +39,7 @@ namespace Public_Library.Controllers
             }
         }
 
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public IActionResult DeletePatron(PatronInputModel patron)
         {
             try
