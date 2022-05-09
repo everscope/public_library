@@ -22,12 +22,12 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("new")]
-        public IActionResult AddBook(BookInputModel book)
+        public async Task<IActionResult> AddBook(BookInputModel book)
         {
             Book newBook = _mapper.Map<Book>(book);
             try
             {
-                _databaseReader.AddBook(newBook);
+                await _databaseReader.AddBook(newBook);
                 Log.ForContext<BookController>().Information("Book {Book} has been added", book);
                 return Ok();
             }
@@ -39,11 +39,11 @@ namespace Public_Library.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public IActionResult RemoveBook(string id)
+        public async Task<IActionResult> RemoveBook(string id)
         {
             try
             {
-                _databaseReader.DeleteBook(id);
+                await _databaseReader.DeleteBook(id);
                 return Ok();
             }
             catch
@@ -53,11 +53,11 @@ namespace Public_Library.Controllers
         }
 
         [HttpGet("getId")]
-        public IActionResult GetBookId(BookInputModel book)
+        public async Task<IActionResult> GetBookId(BookInputModel book)
         {
             try
             {
-                string [] id = _databaseReader.GetBookId(book);
+                string [] id = await _databaseReader.GetBookId(book);
                 Log.ForContext<BookController>().Information("Requested book {book} id," +
                                                         " returned {id}", book, id);
                 return Ok(id);

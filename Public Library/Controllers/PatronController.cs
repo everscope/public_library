@@ -22,12 +22,12 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("new")]
-        public IActionResult CreatePatron(PatronInputModel patron)
+        public async Task<IActionResult> CreatePatron(PatronInputModel patron)
         {
             try
             {
                 Patron newPatron = _mapper.Map<Patron>(patron);
-                _databaseReader.AddPatron(newPatron);
+                await _databaseReader.AddPatron(newPatron);
                 Log.ForContext<PatronController>().Information("Patron {@Patron} has been created", patron);
                 return Ok();
 
@@ -40,12 +40,12 @@ namespace Public_Library.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult DeletePatron(PatronInputModel patron)
+        public async Task<IActionResult> DeletePatron(PatronInputModel patron)
         {
             try
             {
                 Patron newPatron = _mapper.Map<Patron>(patron);
-                _databaseReader.DeletePatron(newPatron);
+                await _databaseReader.DeletePatron(newPatron);
                 Log.ForContext<PatronController>().Information("Patron {@Patron} has been deleted", patron);
                 return Ok();
             }

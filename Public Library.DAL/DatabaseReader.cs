@@ -20,7 +20,7 @@ namespace Public_Library.DAL
             _context = context;
         }
 
-        public void AddPatron(Patron patron)
+        public async Task AddPatron(Patron patron)
         {
 
             Patron? patronToCreate = _context.Patrons.FirstOrDefault(p => p.Email == patron.Email
@@ -33,42 +33,42 @@ namespace Public_Library.DAL
                 throw new Exception("Current patron already exists");
             }
 
-            patron.Id = GenerateId<Patron>();
+            patron.Id = await GenerateId<Patron>();
 
-            _context.Patrons.Add(patron);
-            _context.SaveChanges();
+            await _context.Patrons.AddAsync(patron);
+            await _context.SaveChangesAsync();
         }
 
-        public void DeletePatron(Patron patron)
+        public async Task DeletePatron(Patron patron)
         {
             Patron patronToDelete = _context.Patrons.Single(p => p.Email == patron.Email
                                        && p.Name == patron.Name
                                        && p.Surname == patron.Surname
                                        && p.Password == patron.Password);
             _context.Patrons.Remove(patronToDelete);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void AddBook(Book book)
+        public async Task AddBook(Book book)
         {
-            book.Id = GenerateId<Book>();
+            book.Id = await GenerateId<Book>();
 
-            _context.Books.Add(book);
-            _context.SaveChanges();
+            await _context.Books.AddAsync(book);
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteBook(string id)
+        public async Task DeleteBook(string id)
         {
             var bookToDekete = _context.Books.Single(p=>p.Id == id);
             _context.Books.Remove(bookToDekete);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public string[] GetBookId(BookInputModel book)
+        public async Task<string[]> GetBookId(BookInputModel book)
         {
-            List<Book> books = _context.Books.Where(p => p.Title == book.Title
+            List<Book> books = await _context.Books.Where(p => p.Title == book.Title
                                         && p.Author == book.Author)
-                                        .ToList();
+                                        .ToListAsync();
 
             string[] id = new string[books.Count];
 
@@ -80,23 +80,23 @@ namespace Public_Library.DAL
             return id;
         }
 
-        public void MoveBook()
+        public async Task MoveBook()
         {
-
+            throw new NotImplementedException();
         }
 
-        public void AddIssue()
+        public async Task AddIssue()
         {
-
+            throw new NotImplementedException();
         }
 
 
-        private string GenerateId<T>() where T : class
+        private async Task<string> GenerateId<T>() where T : class
         {
             do
             {
                 string id = Id.Generate();
-                if (_context.Find<T>(id) == null)
+                if (await _context.FindAsync<T>(id) == null)
                 {
                     return id;
                 }

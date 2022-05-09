@@ -8,13 +8,13 @@ namespace Public_Library.LIB.Interfaces
 {
     public interface IDatabaseReader
     {
-        public void AddPatron(Patron patron);
-        public void DeletePatron(Patron patron);
-        public void AddBook(Book book);
+        public Task AddPatron(Patron patron);
+        public Task DeletePatron(Patron patron);
+        public Task AddBook(Book book);
         //GetBookId is array because database can contain more than 1 book copy
-        public string[] GetBookId(BookInputModel book);
-        public void DeleteBook(string id);
-        public void MoveBook();
-        public void AddIssue();
+        public Task<string[]> GetBookId(BookInputModel book);
+        public Task DeleteBook(string id);
+        public Task MoveBook();
+        public Task AddIssue();
     }
 }
