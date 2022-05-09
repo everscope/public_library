@@ -44,10 +44,13 @@ namespace Public_Library.Controllers
             try
             {
                 await _databaseReader.DeleteBook(id);
+                Log.ForContext<BookController>().Information("Book with id {id} has been removed", id );
                 return Ok();
             }
             catch
             {
+                Log.ForContext<BookController>().Information("Book with id {id} can not be removed," +
+                                            " probably it does not exists", id);
                 return BadRequest("Can not delite this book, probably it does not exists");
 
             } 
@@ -66,6 +69,8 @@ namespace Public_Library.Controllers
             }
             catch (Exception exception)
             {
+                Log.ForContext<BookController>().Information("Requested book {book} id," +
+                            "book was not found", new BookInputModel() { Title = title, Author = author });
                 return BadRequest(exception.Message);
             }
         }
@@ -76,10 +81,12 @@ namespace Public_Library.Controllers
             try
             {
                 List<Book> books = await _databaseReader.GetAllBooks();
+                Log.ForContext<BookController>().Information("Requested list of all books");
                 return Ok(books);
             }
             catch
             {
+                Log.ForContext<BookController>().Information("Requested list of all books, error occurred");
                 return BadRequest();
             }
         }
@@ -90,10 +97,14 @@ namespace Public_Library.Controllers
             try
             {
                 await _databaseReader.MoveBook(id, position);
+                Log.ForContext<BookController>().Information("Book with id {id} was moved to position" +
+                                "{position}", id, position);
                 return Ok();
             }
             catch
             {
+                Log.ForContext<BookController>().Information("Book with id {id} was not moved to position" +
+                "{position}, probably book with this id does not exists", id, position);
                 return BadRequest();
             }
         }
@@ -104,10 +115,13 @@ namespace Public_Library.Controllers
             try
             {
                 Book book = await _databaseReader.GetBookById(id);
+                Log.ForContext<BookController>().Information("Book {book} was requested by id", book);
                 return Ok(book);
             }
             catch
             {
+                Log.ForContext<BookController>().Information("Book was requested by id {id} " +
+                                                            "and can not be found", id);
                 return BadRequest();
             }
         }
