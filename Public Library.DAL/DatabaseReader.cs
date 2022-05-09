@@ -85,6 +85,11 @@ namespace Public_Library.DAL
             return id;
         }
 
+        public async Task<List<Book>> GetAllBooks()
+        {
+            return await _context.Books.ToListAsync();
+        }
+
         public async Task MoveBook()
         {
             throw new NotImplementedException();

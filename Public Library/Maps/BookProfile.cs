@@ -8,6 +8,7 @@ namespace Public_Library.Maps
         public BookProfile()
         {
             CreateMap<BookInputModel, Book>();
+            CreateMap<Book, BookDisplayModel>();
         }
     }
 }

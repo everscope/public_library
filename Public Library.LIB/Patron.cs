@@ -13,7 +13,7 @@ namespace Public_Library.LIB
         public string Surname { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public List<Issue> Issues { get; set; }
-        public List<Book> Books { get; set; }
+        public ICollection<Issue> Issues { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

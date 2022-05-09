@@ -33,7 +33,7 @@ namespace Public_Library.Controllers
             }
             catch
             {
-                Log.ForContext<BookController>().Information("Book {Book} can not be added", book);
+                Log.ForContext < BookController>().Information("Book {Book} can not be added", book);
                 return BadRequest("Error while adding book");
             }
         }
@@ -49,7 +49,8 @@ namespace Public_Library.Controllers
             catch
             {
                 return BadRequest("Can not delite this book, probably it does not exists");
-            }
+
+            } 
         }
 
         [HttpGet("getId/{title}/{author}")]
@@ -57,15 +58,30 @@ namespace Public_Library.Controllers
         {
             try
             {
-                BookInputModel book = new(){Title = title, Author = author};
-                string [] id = await _databaseReader.GetBookId(book);
+                BookInputModel book = new() { Title = title, Author = author };
+                string[] id = await _databaseReader.GetBookId(book);
                 Log.ForContext<BookController>().Information("Requested book {book} id," +
                                                         " returned {id}", book, id);
                 return Ok(id);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return BadRequest(exception.Message);
+            }
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetBook()
+        {
+            try
+            {
+                List<Book> books = await _databaseReader.GetAllBooks();
+                List<BookDisplayModel> booksToDisplay = _mapper.Map<List<BookDisplayModel>>(books);
+                return Ok(booksToDisplay);
+            }
+            catch
+            {
+                return BadRequest();
             }
         }
     }
