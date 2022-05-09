@@ -70,6 +70,11 @@ namespace Public_Library.DAL
                                         && p.Author == book.Author)
                                         .ToListAsync();
 
+            if(books.Count == 0)
+            {
+                throw new Exception("This book doesn't exist");
+            }
+
             string[] id = new string[books.Count];
 
             for (int i = 0; i < books.Count; i++)

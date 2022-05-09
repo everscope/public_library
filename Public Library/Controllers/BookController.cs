@@ -52,19 +52,20 @@ namespace Public_Library.Controllers
             }
         }
 
-        [HttpGet("getId")]
-        public async Task<IActionResult> GetBookId(BookInputModel book)
+        [HttpGet("getId/{title}/{author}")]
+        public async Task<IActionResult> GetBookId(string title, string author)
         {
             try
             {
+                BookInputModel book = new(){Title = title, Author = author};
                 string [] id = await _databaseReader.GetBookId(book);
                 Log.ForContext<BookController>().Information("Requested book {book} id," +
                                                         " returned {id}", book, id);
                 return Ok(id);
             }
-            catch(Exception ex)
+            catch(Exception exception)
             {
-                return StatusCode(500, ex.Message);
+                return BadRequest(exception.Message);
             }
         }
     }
