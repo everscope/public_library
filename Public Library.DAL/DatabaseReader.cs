@@ -49,6 +49,16 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<Patron>> GetAllPatrons()
+        {
+            return await _context.Patrons.ToListAsync();
+        }
+
+        public async Task<Patron> GetPatronById(string id)
+        {
+            return await _context.Patrons.SingleAsync(p=> p.Id == id);
+        }
+
         public async Task AddBook(Book book)
         {
             book.Id = await GenerateId<Book>();

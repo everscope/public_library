@@ -1,0 +1,5 @@
+{"Timestamp":"2022-05-10T16:50:22.4267511+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-10T16:50:55.5218549+02:00","Level":"Information","MessageTemplate":"Patron {@Patron} has been created","Properties":{"Patron":{"Name":"string","Surname":"string","Email":"string","Password":"string"},"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-10T16:50:59.4006452+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-10T16:57:34.4620523+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-10T16:57:44.5001440+02:00","Level":"Information","MessageTemplate":"Requested patron {patron} by id {id}","Properties":{"patron":"Public_Library.LIB.Patron","id":"Mom4dbWTjFOe3VS","SourceContext":"Public_Library.Controllers.PatronController"}}

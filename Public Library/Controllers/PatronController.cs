@@ -56,5 +56,39 @@ namespace Public_Library.Controllers
             }
         }
 
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllPatrons()
+        {
+            try
+            {
+                List<Patron> patrons = await _databaseReader.GetAllPatrons();
+                Log.ForContext<PatronController>().Information("Requested all patrons data");
+                return Ok(patrons);
+            }
+            catch
+            {
+                Log.ForContext<PatronController>().Error("Requested all patrons data, returned error");
+                return StatusCode(500);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPatronById(string id)
+        {
+            try
+            {
+                Patron patron = await _databaseReader.GetPatronById(id);
+                Log.ForContext<PatronController>().Information("Requested patron {patron} by id {id}",
+                                            patron, id);
+                return Ok(patron);
+            }
+            catch
+            {
+                Log.ForContext<PatronController>().Information("Requested patron by id {id}, " +
+                    "patron was not found");
+                return NotFound("Patron was not found");
+            }
+        }
     }
 }
