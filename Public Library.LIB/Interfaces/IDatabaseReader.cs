@@ -10,6 +10,7 @@ namespace Public_Library.LIB.Interfaces
     {
         public Task AddPatron(Patron patron);
         public Task DeletePatron(Patron patron);
+        public Task DeletePatronById(string id);
         public Task<List<Patron>> GetAllPatrons();
         public Task<Patron> GetPatronById(string id);
         public Task<string> GetPatronId(string name, string surname, string email);

@@ -107,5 +107,22 @@ namespace Public_Library.Controllers
                 return NotFound();
             }
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteById(string id)
+        {
+            try
+            {
+                await _databaseReader.DeletePatronById(id);
+                Log.ForContext<PatronController>().Information("Deleted patron with id {id}", id);
+                return Ok();
+            }
+            catch
+            {
+                Log.ForContext<PatronController>().Information("Requested deletion of patron with id {id}, " +
+                    "patron was not found", id);
+                return BadRequest();
+            }
+        }
     }
 }

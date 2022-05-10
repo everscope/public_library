@@ -49,6 +49,13 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeletePatronById(string id)
+        {
+            var patron = await _context.Patrons.SingleAsync(p => p.Id == id);
+            _context.Patrons.Remove(patron);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<List<Patron>> GetAllPatrons()
         {
             return await _context.Patrons.ToListAsync();
