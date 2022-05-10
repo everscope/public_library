@@ -59,6 +59,14 @@ namespace Public_Library.DAL
             return await _context.Patrons.SingleAsync(p=> p.Id == id);
         }
 
+        public async Task<string> GetPatronId(string name, string surname, string email)
+        {
+            var patron = await _context.Patrons.SingleAsync(p => p.Surname == surname
+                                           && p.Name == name
+                                           && p.Email == email);
+            return patron.Id;
+        }
+
         public async Task AddBook(Book book)
         {
             book.Id = await GenerateId<Book>();

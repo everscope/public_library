@@ -12,6 +12,7 @@ namespace Public_Library.LIB.Interfaces
         public Task DeletePatron(Patron patron);
         public Task<List<Patron>> GetAllPatrons();
         public Task<Patron> GetPatronById(string id);
+        public Task<string> GetPatronId(string name, string surname, string email);
         public Task AddBook(Book book);
         //GetBookId is array because database can contain more than 1 book copy
         public Task<string []> GetBookId(BookInputModel book);

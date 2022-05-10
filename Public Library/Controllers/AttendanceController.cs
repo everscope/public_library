@@ -1,83 +1,34 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Public_Library.LIB.Interfaces;
 
 namespace Public_Library.Controllers
 {
+    //[ApiController]
+    //[Route("attendance/")]
     public class AttendanceController : Controller
     {
-        // GET: Attendance
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //    private readonly IMapper _mapper;
+        //    private readonly IDatabaseReader _databaseReader;
 
-        // GET: Attendance/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //    public AttendanceController(IMapper mapper,
+        //                            IDatabaseReader databaseReader)
+        //    {
+        //        _mapper = mapper;
+        //        _databaseReader = databaseReader;
+        //    }
 
-        // GET: Attendance/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Attendance/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Attendance/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Attendance/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Attendance/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Attendance/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    public async Task<IActionResult> Add()
+        //    {
+        //        try
+        //        {
+        //            return Ok();
+        //        }
+        //        catch
+        //        {
+        //            return StatusCode(500);
+        //        }
+        //    }
     }
 }

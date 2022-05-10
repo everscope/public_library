@@ -90,5 +90,22 @@ namespace Public_Library.Controllers
                 return NotFound("Patron was not found");
             }
         }
+
+        [HttpGet("{name}/{surname}/{email}")]
+        public async Task<IActionResult> GetId(string name, string surname, string email)
+        {
+            try
+            {
+                string id = await _databaseReader.GetPatronId(name, surname, email);
+                Log.ForContext<PatronController>().Information("Requested patron Id, returned {id}", id);
+                return Ok(id);
+            }
+            catch
+            {
+                Log.ForContext<PatronController>().Information("Requested patron Id, patron {@patron} not found",
+                                        new PatronInputModel { Name = name, Email = email, Surname = surname});
+                return NotFound();
+            }
+        }
     }
 }
