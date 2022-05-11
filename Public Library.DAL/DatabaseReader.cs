@@ -134,6 +134,11 @@ namespace Public_Library.DAL
             throw new NotImplementedException();
         }
 
+        public async Task<List<Issue>> GetAllIssues()
+        {
+            return await _context.Issues.ToListAsync();
+        }
+
         private async Task<string> GenerateId<T>() where T : class
         {
             do
