@@ -8,7 +8,6 @@ using Public_Library.Maps;
 using Serilog;
 using Serilog.Filters;
 using Serilog.Formatting.Json;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +20,7 @@ builder.Services.AddDbContext<PublicLibraryContext>(options
     => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddSingleton<AttendanceAmount>();
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .Destructure.ByTransforming<PatronInputModel>(
@@ -41,11 +41,11 @@ Log.Logger = new LoggerConfiguration()
                     .WriteTo.File("Logs/BookLogs/BookLog.txt", rollingInterval: RollingInterval.Day)
                     .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonBookLogs/BookLogs.json",
                                                 rollingInterval: RollingInterval.Day)
-    .WriteTo.Logger(attandanceLogger => attandanceLogger
-                    .Filter.ByIncludingOnly(Matching.FromSource<AttendanceController>()))
-                    .WriteTo.File("Logs/AttendanceLogs/AttendanceLogs.txt", rollingInterval: RollingInterval.Day)
-                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAttendanceLogs/AttendanceLogs.json",
-                                                rollingInterval: RollingInterval.Day)
+    //.WriteTo.Logger(attandanceLogger => attandanceLogger
+    //                .Filter.ByIncludingOnly(Matching.FromSource<AttendanceController>()))
+    //                .WriteTo.File("Logs/AttendanceLogs/AttendanceLogs.txt", rollingInterval: RollingInterval.Day)
+    //                .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAttendanceLogs/AttendanceLogs.json",
+    //                                            rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var app = builder.Build();

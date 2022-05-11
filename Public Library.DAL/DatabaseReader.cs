@@ -12,7 +12,6 @@ namespace Public_Library.DAL
 {
     public class DatabaseReader : IDatabaseReader
     {
-     
         private PublicLibraryContext _context;
 
         public DatabaseReader(PublicLibraryContext context)
@@ -134,7 +133,6 @@ namespace Public_Library.DAL
         {
             throw new NotImplementedException();
         }
-
 
         private async Task<string> GenerateId<T>() where T : class
         {
