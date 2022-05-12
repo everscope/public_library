@@ -9,6 +9,7 @@ namespace Public_Library.Maps
         {
             CreateMap<PatronInputModel, Patron>();
             CreateMap<Patron, MinimalizedPatronModel>();
+            CreateMap<Patron, PatronWithMinimalizedBooksAndIssues>();
         }
     }
 }

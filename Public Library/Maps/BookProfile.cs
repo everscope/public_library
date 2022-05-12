@@ -9,6 +9,7 @@ namespace Public_Library.Maps
         {
             CreateMap<BookInputModel, Book>();
             CreateMap<Book, MinimalizedBookModel>();
+            CreateMap<Book, BookWithMinimalizedPatronAndIssues>();
         }
     }
 }

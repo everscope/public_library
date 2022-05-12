@@ -63,8 +63,10 @@ namespace Public_Library.Controllers
             try
             {
                 List<Patron> patrons = await _databaseReader.GetAllPatrons();
+                List<PatronWithMinimalizedBooksAndIssues> patronMin =
+                    _mapper.Map<List<PatronWithMinimalizedBooksAndIssues>>(patrons);
                 Log.ForContext<PatronController>().Information("Requested all patrons data");
-                return Ok(patrons);
+                return Ok(patronMin);
             }
             catch
             {

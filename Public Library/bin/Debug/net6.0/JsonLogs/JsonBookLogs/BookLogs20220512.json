@@ -1,3 +1,28 @@
 {"Timestamp":"2022-05-12T14:09:15.4108113+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
 {"Timestamp":"2022-05-12T14:21:59.4870773+02:00","Level":"Error","MessageTemplate":"Requested all issues, returned error.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
 {"Timestamp":"2022-05-12T14:37:02.2033060+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:39:43.4287910+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:51:07.9033109+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:51:19.5823143+02:00","Level":"Information","MessageTemplate":"Book {Book} has been added","Properties":{"Book":"Public_Library.LIB.BookInputModel","SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T14:51:25.1294713+02:00","Level":"Information","MessageTemplate":"Patron {@Patron} has been created","Properties":{"Patron":{"Name":"string","Surname":"string","Email":"string","Password":"string"},"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T14:51:36.7307902+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T14:51:55.3754938+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T14:53:03.4643472+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:53:24.6457502+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:56:52.5543560+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T15:17:19.1854556+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T15:17:49.3124424+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T15:18:02.5727346+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T15:18:02.6590413+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T15:27:44.0262398+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T15:29:26.5678289+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T15:31:54.9421492+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T15:34:20.4488506+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T15:36:19.6946595+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T16:23:54.3084549+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T17:00:32.9078408+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T17:01:36.9716459+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T17:02:56.0481763+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
+{"Timestamp":"2022-05-12T17:08:41.4456667+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T17:09:43.5861039+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T17:13:05.5869604+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}

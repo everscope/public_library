@@ -51,5 +51,19 @@ namespace Public_Library.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpPut("close/{id}")]
+        public async Task<IActionResult> CloseIssue(int id)
+        {
+            try
+            {
+                await _databaseReader.CloseIssue(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }

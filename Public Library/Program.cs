@@ -22,6 +22,8 @@ builder.Services.AddDbContext<PublicLibraryContext>(options
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSingleton<AttendanceAmount>();
+//builder.Services.AddControllers().AddJsonOptions(x =>
+//   x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .Destructure.ByTransforming<PatronInputModel>(

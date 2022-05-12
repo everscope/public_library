@@ -81,8 +81,10 @@ namespace Public_Library.Controllers
             try
             {
                 List<Book> books = await _databaseReader.GetAllBooks();
+                List<BookWithMinimalizedPatronAndIssues> booksMin =
+                    _mapper.Map<List<BookWithMinimalizedPatronAndIssues>>(books);
                 Log.ForContext<BookController>().Information("Requested list of all books");
-                return Ok(books);
+                return Ok(booksMin);
             }
             catch
             {

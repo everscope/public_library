@@ -57,7 +57,8 @@ namespace Public_Library.DAL
 
         public async Task<List<Patron>> GetAllPatrons()
         {
-            return await _context.Patrons.ToListAsync();
+            return await _context.Patrons.Include(p => p.Books).Include(p => p.Issues)
+                .ToListAsync();
         }
 
         public async Task<Patron> GetPatronById(string id)
@@ -111,7 +112,8 @@ namespace Public_Library.DAL
 
         public async Task<List<Book>> GetAllBooks()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books.Include(p => p.Issues).Include(p => p.Patron)
+                .ToListAsync();
         }
         
         public async Task<Book> GetBookById(string id)
@@ -136,8 +138,21 @@ namespace Public_Library.DAL
 
             Issue issueToAdd = new() { Patron = patron, Book = book };
             book.Patron = patron;
+            
             //patron.Issues.Add(issueToAdd);
             await _context.Issues.AddAsync(issueToAdd);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task CloseIssue(int id)
+        {
+            var issue = await _context.Issues.SingleAsync(p => p.Id == id);
+            issue.isClosed = true;
+            issue.ReturnDateTime = DateTime.Now;
+            if((issue.DateTime - issue.ReturnDateTime).Days <= issue.AllowedDaysAmount)
+            {
+                issue.isExpired = true;
+            }
             await _context.SaveChangesAsync();
         }
 
