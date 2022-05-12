@@ -21,14 +21,29 @@ namespace Public_Library.Controllers
             _databaseReader = databaseReader;
         }
 
+        [HttpPost("new")]
+        public async Task<IActionResult> CreateIssue(IssueInputModel issue)
+        {
+            try
+            {
+                await _databaseReader.AddIssue(issue);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
             try
             {
                 List<Issue> issues = await _databaseReader.GetAllIssues();
+                List<IssueDisplayModel> issueDisplayModels = _mapper.Map<List<IssueDisplayModel>>(issues);
                 Log.ForContext<IssueController>().Information("Requested all issues.");
-                return Ok(issues);
+                return Ok(issueDisplayModels);
             }
             catch
             {

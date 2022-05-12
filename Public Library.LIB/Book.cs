@@ -11,5 +11,6 @@
         public bool IsBorrowed { get; set; } = false;
         public BookState BookState { get; set; }
         public Patron? Patron { get; set; }
+        public ICollection<Issue> Issues { get; set; } = new List<Issue>();
     }
 }

@@ -105,3 +105,9 @@ F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLo
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonAttendanceLogs\AttendanceLogs20220510.json
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonBookLogs\BookLogs20220510.json
 F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonPatronLogs\PatronLogs20220510.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonAllLogs\AllLogs20220511.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonBookLogs\BookLogs20220511.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonPatronLogs\PatronLogs20220511.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonAllLogs\AllLogs20220512.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonBookLogs\BookLogs20220512.json
+F:\Projects\Public Library\Public Library\Public Library\bin\Debug\net6.0\JsonLogs\JsonPatronLogs\PatronLogs20220512.json

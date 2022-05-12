@@ -8,6 +8,7 @@ namespace Public_Library.Maps
         public PatronProfile()
         {
             CreateMap<PatronInputModel, Patron>();
+            CreateMap<Patron, MinimalizedPatronModel>();
         }
     }
 }

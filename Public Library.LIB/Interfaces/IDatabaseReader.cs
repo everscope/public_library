@@ -22,6 +22,6 @@ namespace Public_Library.LIB.Interfaces
         public Task MoveBook(string id, string placement);
         public Task<Book> GetBookById(string id);
         public Task<List<Issue>> GetAllIssues();
-        public Task AddIssue();
+        public Task AddIssue(IssueInputModel issue);
     }
 }

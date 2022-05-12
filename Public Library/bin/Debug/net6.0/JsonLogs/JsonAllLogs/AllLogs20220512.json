@@ -1,0 +1,3 @@
+{"Timestamp":"2022-05-12T14:09:15.4108113+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:21:59.4870773+02:00","Level":"Error","MessageTemplate":"Requested all issues, returned error.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}
+{"Timestamp":"2022-05-12T14:37:02.2033060+02:00","Level":"Information","MessageTemplate":"Requested all issues.","Properties":{"SourceContext":"Public_Library.Controllers.IssueController"}}

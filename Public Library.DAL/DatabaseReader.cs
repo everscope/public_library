@@ -129,14 +129,21 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task AddIssue()
+        public async Task AddIssue(IssueInputModel issue)
         {
-            throw new NotImplementedException();
+            Book book = await _context.Books.SingleAsync(p => p.Id == issue.BookId);
+            Patron patron = await _context.Patrons.SingleAsync(p => p.Id == issue.PatronId);
+
+            Issue issueToAdd = new() { Patron = patron, Book = book };
+            book.Patron = patron;
+            //patron.Issues.Add(issueToAdd);
+            await _context.Issues.AddAsync(issueToAdd);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Issue>> GetAllIssues()
         {
-            return await _context.Issues.ToListAsync();
+            return await _context.Issues.Include(p => p.Patron).Include(p =>p.Book).ToListAsync();
         }
 
         private async Task<string> GenerateId<T>() where T : class
