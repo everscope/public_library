@@ -81,9 +81,11 @@ namespace Public_Library.Controllers
             try
             {
                 Patron patron = await _databaseReader.GetPatronById(id);
+                PatronWithMinimalizedBooksAndIssues patronMin =
+                    _mapper.Map<PatronWithMinimalizedBooksAndIssues>(patron);
                 Log.ForContext<PatronController>().Information("Requested patron {patron} by id {id}",
                                             patron, id);
-                return Ok(patron);
+                return Ok(patronMin);
             }
             catch
             {

@@ -63,7 +63,8 @@ namespace Public_Library.DAL
 
         public async Task<Patron> GetPatronById(string id)
         {
-            return await _context.Patrons.SingleAsync(p=> p.Id == id);
+            return await _context.Patrons.Include(p => p.Issues).Include(p => p.Books)
+                .SingleAsync(p=> p.Id == id);
         }
 
         public async Task<string> GetPatronId(string name, string surname, string email)
@@ -118,7 +119,8 @@ namespace Public_Library.DAL
         
         public async Task<Book> GetBookById(string id)
         {
-            return await _context.Books.SingleAsync(p => p.Id == id);
+            return await _context.Books.Include(p => p.Issues).Include(p => p.Patron)
+                .SingleAsync(p => p.Id == id);
         }
 
 
@@ -138,18 +140,24 @@ namespace Public_Library.DAL
 
             Issue issueToAdd = new() { Patron = patron, Book = book };
             book.Patron = patron;
-            
-            //patron.Issues.Add(issueToAdd);
+            book.BookState = BookState.Borrowed;
+            book.IsBorrowed = true;
+
             await _context.Issues.AddAsync(issueToAdd);
             await _context.SaveChangesAsync();
         }
 
         public async Task CloseIssue(int id)
         {
-            var issue = await _context.Issues.SingleAsync(p => p.Id == id);
+            var issue = await _context.Issues.Include(p => p.Patron).Include(p => p.Book)
+                .SingleAsync(p => p.Id == id);
             issue.isClosed = true;
             issue.ReturnDateTime = DateTime.Now;
-            if((issue.DateTime - issue.ReturnDateTime).Days <= issue.AllowedDaysAmount)
+            issue.Book.BookState = BookState.OnService;
+            issue.Book.IsBorrowed = false;
+            issue.Book.Patron = null;
+            issue.Patron.Books.Remove(issue.Book);
+            if((issue.DateTime - issue.ReturnDateTime).Days > issue.AllowedDaysAmount)
             {
                 issue.isExpired = true;
             }

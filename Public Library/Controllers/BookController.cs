@@ -117,8 +117,10 @@ namespace Public_Library.Controllers
             try
             {
                 Book book = await _databaseReader.GetBookById(id);
+                BookWithMinimalizedPatronAndIssues bookMin = _mapper.
+                    Map<BookWithMinimalizedPatronAndIssues>(book);
                 Log.ForContext<BookController>().Information("Book {book} was requested by id", book);
-                return Ok(book);
+                return Ok(bookMin);
             }
             catch
             {
