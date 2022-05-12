@@ -52,3 +52,9 @@
 {"Timestamp":"2022-05-12T18:39:41.1622651+02:00","Level":"Information","MessageTemplate":"Requested all patrons data","Properties":{"SourceContext":"Public_Library.Controllers.PatronController"}}
 {"Timestamp":"2022-05-12T18:39:57.3539769+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
 {"Timestamp":"2022-05-12T18:39:58.6877491+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:01:50.7131489+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:01:55.7816137+02:00","Level":"Information","MessageTemplate":"Book {Book} has been added","Properties":{"Book":"Public_Library.LIB.BookInputModel","SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:01:57.1533313+02:00","Level":"Information","MessageTemplate":"Book {Book} has been added","Properties":{"Book":"Public_Library.LIB.BookInputModel","SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:02:21.9712713+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:02:34.0646370+02:00","Level":"Information","MessageTemplate":"Book with id {id}, BookState was changed to{bookState}","Properties":{"id":"QgS0qEqFbD0BYQp","bookState":"OnService","SourceContext":"Public_Library.Controllers.BookController"}}
+{"Timestamp":"2022-05-12T19:02:39.5614493+02:00","Level":"Information","MessageTemplate":"Requested list of all books","Properties":{"SourceContext":"Public_Library.Controllers.BookController"}}

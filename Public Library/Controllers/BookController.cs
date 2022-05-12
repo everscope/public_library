@@ -110,6 +110,24 @@ namespace Public_Library.Controllers
                 return BadRequest();
             }
         }
+            
+        [HttpPut("setStatus/{id}")]
+        public async Task<IActionResult> SetBookStatus(string id, BookState bookState)
+        {
+            try
+            {
+                await _databaseReader.SetBookState(id, bookState);
+                Log.ForContext<BookController>().Information("Book with id {id}, BookState was changed to" +
+                    "{bookState}", id, bookState);
+                return Ok();
+            }
+            catch
+            {
+                Log.ForContext<BookController>().Information("Book with id {id}, BookState was tried to" +
+                    "modify, book was not found", id);
+                return NotFound("Book was not found");
+            }
+        }
 
         [HttpGet("get/{id}")]
         public async Task<IActionResult> GetBookById(string id)

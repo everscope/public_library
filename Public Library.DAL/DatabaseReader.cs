@@ -123,6 +123,12 @@ namespace Public_Library.DAL
                 .SingleAsync(p => p.Id == id);
         }
 
+        public async Task SetBookState(string id, BookState bookState)
+        {
+            var book = await _context.Books.SingleAsync(p => p.Id == id);
+            book.BookState = bookState;
+            await _context.SaveChangesAsync();
+        }
 
         public async Task MoveBook(string id, string placement)
         {
