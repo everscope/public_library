@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Public_Library.LIB;
-using Public_Library.LIB.Interfaces;
 
 namespace Public_Library.Controllers
 {

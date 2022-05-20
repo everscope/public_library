@@ -26,7 +26,7 @@ namespace Public_Library.Controllers
             Book newBook = _mapper.Map<Book>(book);
             try
             {
-                await _databaseReader.AddBook(newBook);
+                await _databaseReader.AddBookAsync(newBook);
                 Log.ForContext<BookController>().Information("Book {Book} has been added", book);
                 return Ok();
             }
@@ -42,7 +42,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.DeleteBook(id);
+                await _databaseReader.DeleteBookAsync(id);
                 Log.ForContext<BookController>().Information("Book with id {id} has been removed", id );
                 return Ok();
             }
@@ -61,7 +61,7 @@ namespace Public_Library.Controllers
             try
             {
                 BookInputModel book = new() { Title = title, Author = author };
-                string[] id = await _databaseReader.GetBookId(book);
+                string[] id = await _databaseReader.GetBookIdAsync(book);
                 Log.ForContext<BookController>().Information("Requested book {book} id," +
                     " returned {id}", book, id);
                 return Ok(id);
@@ -79,7 +79,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                List<Book> books = await _databaseReader.GetAllBooks();
+                List<Book> books = await _databaseReader.GetAllBooksAsync();
                 List<BookWithMinimalizedPatronAndIssues> booksMin =
                     _mapper.Map<List<BookWithMinimalizedPatronAndIssues>>(books);
                 Log.ForContext<BookController>().Information("Requested list of all books");
@@ -97,7 +97,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.MoveBook(id, position);
+                await _databaseReader.MoveBookAsync(id, position);
                 Log.ForContext<BookController>().Information("Book with id {id} was moved to position" +
                     "{position}", id, position);
                 return Ok();
@@ -115,7 +115,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.SetBookState(id, bookState);
+                await _databaseReader.SetBookStateAsync(id, bookState);
                 Log.ForContext<BookController>().Information("Book with id {id}, BookState was changed to" +
                     "{bookState}", id, bookState);
                 return Ok();
@@ -133,7 +133,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                Book book = await _databaseReader.GetBookById(id);
+                Book book = await _databaseReader.GetBookByIdAsync(id);
                 BookWithMinimalizedPatronAndIssues bookMin = _mapper.
                     Map<BookWithMinimalizedPatronAndIssues>(book);
                 Log.ForContext<BookController>().Information("Book {book} was requested by id", book);

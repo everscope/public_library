@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
@@ -26,7 +25,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.AddIssue(issue);
+                await _databaseReader.AddIssueAsync(issue);
                 Log.ForContext<IssueController>().Information("Issue {issue} has been added", issue);
                 return Ok();
             }
@@ -42,7 +41,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                List<Issue> issues = await _databaseReader.GetAllIssues();
+                List<Issue> issues = await _databaseReader.GetAllIssuesAsync();
                 List<IssueDisplayModel> issueDisplayModels = _mapper.Map<List<IssueDisplayModel>>(issues);
                 Log.ForContext<IssueController>().Information("Requested all issues.");
                 return Ok(issueDisplayModels);
@@ -59,7 +58,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.CloseIssue(id);
+                await _databaseReader.CloseIssueAsync(id);
                 Log.ForContext<IssueController>().Information("Issue with id {id} was closed", id);
                 return Ok();
             }

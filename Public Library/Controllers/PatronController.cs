@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
 using Serilog;
-using System.Net;
 
 namespace Public_Library.Controllers
 {
@@ -27,7 +26,7 @@ namespace Public_Library.Controllers
             try
             {
                 Patron newPatron = _mapper.Map<Patron>(patron);
-                await _databaseReader.AddPatron(newPatron);
+                await _databaseReader.AddPatronAsync(newPatron);
                 Log.ForContext<PatronController>().Information("Patron {@Patron} has been created", patron);
                 return Ok();
 
@@ -45,7 +44,7 @@ namespace Public_Library.Controllers
             try
             {
                 Patron newPatron = _mapper.Map<Patron>(patron);
-                await _databaseReader.DeletePatron(newPatron);
+                await _databaseReader.DeletePatronAsync(newPatron);
                 Log.ForContext<PatronController>().Information("Patron {@Patron} has been deleted", patron);
                 return Ok();
             }
@@ -62,7 +61,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                List<Patron> patrons = await _databaseReader.GetAllPatrons();
+                List<Patron> patrons = await _databaseReader.GetAllPatronsAsync();
                 List<PatronWithMinimalizedBooksAndIssues> patronMin =
                     _mapper.Map<List<PatronWithMinimalizedBooksAndIssues>>(patrons);
                 Log.ForContext<PatronController>().Information("Requested all patrons data");
@@ -80,7 +79,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                Patron patron = await _databaseReader.GetPatronById(id);
+                Patron patron = await _databaseReader.GetPatronByIdAsync(id);
                 PatronWithMinimalizedBooksAndIssues patronMin =
                     _mapper.Map<PatronWithMinimalizedBooksAndIssues>(patron);
                 Log.ForContext<PatronController>().Information("Requested patron {patron} by id {id}",
@@ -100,7 +99,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                string id = await _databaseReader.GetPatronId(name, surname, email);
+                string id = await _databaseReader.GetPatronIdAsync(name, surname, email);
                 Log.ForContext<PatronController>().Information("Requested patron Id, returned {id}", id);
                 return Ok(id);
             }
@@ -117,7 +116,7 @@ namespace Public_Library.Controllers
         {
             try
             {
-                await _databaseReader.DeletePatronById(id);
+                await _databaseReader.DeletePatronByIdAsync(id);
                 Log.ForContext<PatronController>().Information("Deleted patron with id {id}", id);
                 return Ok();
             }

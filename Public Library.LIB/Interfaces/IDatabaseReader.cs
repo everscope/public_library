@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Public_Library.LIB.Interfaces
+﻿namespace Public_Library.LIB.Interfaces
 {
     public interface IDatabaseReader
     {
-        public Task AddPatron(Patron patron);
-        public Task DeletePatron(Patron patron);
-        public Task DeletePatronById(string id);
-        public Task<List<Patron>> GetAllPatrons();
-        public Task<Patron> GetPatronById(string id);
-        public Task<string> GetPatronId(string name, string surname, string email);
-        public Task AddBook(Book book);
+        public Task AddPatronAsync(Patron patron);
+        public Task DeletePatronAsync(Patron patron);
+        public Task DeletePatronByIdAsync(string id);
+        public Task<List<Patron>> GetAllPatronsAsync();
+        public Task<Patron> GetPatronByIdAsync(string id);
+        public Task<string> GetPatronIdAsync(string name, string surname, string email);
+        public Task AddBookAsync(Book book);
         //GetBookId is array because database can contain more than 1 book copy
-        public Task<string []> GetBookId(BookInputModel book);
-        public Task SetBookState(string id, BookState bookState);
-        public Task<List<Book>> GetAllBooks();
-        public Task DeleteBook(string id);
-        public Task MoveBook(string id, string placement);
-        public Task<Book> GetBookById(string id);
-        public Task<List<Issue>> GetAllIssues();
-        public Task AddIssue(IssueInputModel issue);
-        public Task CloseIssue(int id);
+        public Task<string []> GetBookIdAsync(BookInputModel book);
+        public Task SetBookStateAsync(string id, BookState bookState);
+        public Task<List<Book>> GetAllBooksAsync();
+        public Task DeleteBookAsync(string id);
+        public Task MoveBookAsync(string id, string placement);
+        public Task<Book> GetBookByIdAsync(string id);
+        public Task<List<Issue>> GetAllIssuesAsync();
+        public Task AddIssueAsync(IssueInputModel issue);
+        public Task CloseIssueAsync(int id);
     }
 }

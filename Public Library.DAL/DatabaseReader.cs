@@ -13,7 +13,7 @@ namespace Public_Library.DAL
             _context = context;
         }
 
-        public async Task AddPatron(Patron patron)
+        public async Task AddPatronAsync(Patron patron)
         {
 
             Patron? patronToCreate = _context.Patrons.FirstOrDefault(p => p.Email == patron.Email
@@ -26,13 +26,13 @@ namespace Public_Library.DAL
                 throw new Exception("Current patron already exists");
             }
 
-            patron.Id = await GenerateId<Patron>();
+            patron.Id = await GenerateIdAsync<Patron>();
 
             await _context.Patrons.AddAsync(patron);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeletePatron(Patron patron)
+        public async Task DeletePatronAsync(Patron patron)
         {
             Patron patronToDelete = _context.Patrons.Single(p => p.Email == patron.Email
                                        && p.Name == patron.Name
@@ -42,26 +42,26 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeletePatronById(string id)
+        public async Task DeletePatronByIdAsync(string id)
         {
             var patron = await _context.Patrons.SingleAsync(p => p.Id == id);
             _context.Patrons.Remove(patron);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Patron>> GetAllPatrons()
+        public async Task<List<Patron>> GetAllPatronsAsync()
         {
             return await _context.Patrons.Include(p => p.Books).Include(p => p.Issues)
                 .ToListAsync();
         }
 
-        public async Task<Patron> GetPatronById(string id)
+        public async Task<Patron> GetPatronByIdAsync(string id)
         {
             return await _context.Patrons.Include(p => p.Issues).Include(p => p.Books)
                 .SingleAsync(p=> p.Id == id);
         }
 
-        public async Task<string> GetPatronId(string name, string surname, string email)
+        public async Task<string> GetPatronIdAsync(string name, string surname, string email)
         {
             var patron = await _context.Patrons.SingleAsync(p => p.Surname == surname
                                            && p.Name == name
@@ -69,22 +69,22 @@ namespace Public_Library.DAL
             return patron.Id;
         }
 
-        public async Task AddBook(Book book)
+        public async Task AddBookAsync(Book book)
         {
-            book.Id = await GenerateId<Book>();
+            book.Id = await GenerateIdAsync<Book>();
 
             await _context.Books.AddAsync(book);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteBook(string id)
+        public async Task DeleteBookAsync(string id)
         {
             var bookToDekete = _context.Books.Single(p=>p.Id == id);
             _context.Books.Remove(bookToDekete);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<string[]> GetBookId(BookInputModel book)
+        public async Task<string[]> GetBookIdAsync(BookInputModel book)
         {
             List<Book> books = await _context.Books.Where(p => p.Title == book.Title
                                         && p.Author == book.Author)
@@ -105,26 +105,26 @@ namespace Public_Library.DAL
             return id;
         }
 
-        public async Task<List<Book>> GetAllBooks()
+        public async Task<List<Book>> GetAllBooksAsync()
         {
             return await _context.Books.Include(p => p.Issues).Include(p => p.Patron)
                 .ToListAsync();
         }
         
-        public async Task<Book> GetBookById(string id)
+        public async Task<Book> GetBookByIdAsync(string id)
         {
             return await _context.Books.Include(p => p.Issues).Include(p => p.Patron)
                 .SingleAsync(p => p.Id == id);
         }
 
-        public async Task SetBookState(string id, BookState bookState)
+        public async Task SetBookStateAsync(string id, BookState bookState)
         {
             var book = await _context.Books.SingleAsync(p => p.Id == id);
             book.BookState = bookState;
             await _context.SaveChangesAsync();
         }
 
-        public async Task MoveBook(string id, string placement)
+        public async Task MoveBookAsync(string id, string placement)
         {
             var bookToChange =await _context.Books.SingleAsync(p => p.Id == id);
 
@@ -133,7 +133,7 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task AddIssue(IssueInputModel issue)
+        public async Task AddIssueAsync(IssueInputModel issue)
         {
             Book book = await _context.Books.SingleAsync(p => p.Id == issue.BookId);
             Patron patron = await _context.Patrons.SingleAsync(p => p.Id == issue.PatronId);
@@ -147,7 +147,7 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task CloseIssue(int id)
+        public async Task CloseIssueAsync(int id)
         {
             var issue = await _context.Issues.Include(p => p.Patron).Include(p => p.Book)
                 .SingleAsync(p => p.Id == id);
@@ -164,12 +164,12 @@ namespace Public_Library.DAL
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Issue>> GetAllIssues()
+        public async Task<List<Issue>> GetAllIssuesAsync()
         {
             return await _context.Issues.Include(p => p.Patron).Include(p =>p.Book).ToListAsync();
         }
 
-        private async Task<string> GenerateId<T>() where T : class
+        private async Task<string> GenerateIdAsync<T>() where T : class
         {
             do
             {
