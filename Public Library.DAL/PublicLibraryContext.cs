@@ -41,13 +41,6 @@ namespace Public_Library
                 .WithMany(p => p.Books)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            //modelBuilder.Entity<Patron>()
-            //    .HasMany(p => p.Books)
-            //    .WithOne(p=> p.Patron)
-            //    .OnDelete(DeleteBehavior.NoAction)
-            //    .HasForeignKey(p => p.Id);
-
-
         }
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Public_Library.LIB;
 using Public_Library.LIB.Interfaces;
-using System.Net;
+
 namespace Public_Library.DAL
 {
     public class DatabaseReader : IDatabaseReader
