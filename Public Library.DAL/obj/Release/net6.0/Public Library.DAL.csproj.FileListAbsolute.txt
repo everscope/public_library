@@ -1,0 +1,17 @@
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.DAL.deps.json
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.DAL.runtimeconfig.json
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.DAL.dll
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.DAL.pdb
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.LIB.dll
+F:\Projects\Public Library\Public Library\Public Library.DAL\bin\Release\net6.0\Public Library.LIB.pdb
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.csproj.AssemblyReference.cache
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.AssemblyInfoInputs.cache
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.AssemblyInfo.cs
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.csproj.CoreCompileInputs.cache
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.csproj.CopyComplete
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.dll
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\refint\Public Library.DAL.dll
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.pdb
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\Public Library.DAL.genruntimeconfig.cache
+F:\Projects\Public Library\Public Library\Public Library.DAL\obj\Release\net6.0\ref\Public Library.DAL.dll

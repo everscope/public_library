@@ -15,7 +15,7 @@ namespace Public_Library.Controllers
         private readonly IDatabaseReader _databaseReader;
 
         public PatronController(IMapper mapper,
-                                IDatabaseReader databaseReader)
+            IDatabaseReader databaseReader)
         {
             _mapper = mapper;
             _databaseReader = databaseReader;
@@ -32,15 +32,15 @@ namespace Public_Library.Controllers
                 return Ok();
 
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
                 Log.ForContext<PatronController>().Information("Patron {@Patron} can not be created", patron);
-                return BadRequest(ex.Message);
+                return BadRequest(exception.Message);
             }
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> DeletePatron(PatronInputModel patron)
+        public async Task<IActionResult> RemovePatron(PatronInputModel patron)
         {
             try
             {
@@ -49,10 +49,10 @@ namespace Public_Library.Controllers
                 Log.ForContext<PatronController>().Information("Patron {@Patron} has been deleted", patron);
                 return Ok();
             }
-            catch
+            catch(Exception exception)
             {
                 Log.ForContext<PatronController>().Information("Patron {@Patron} can not be deleted", patron);
-                return BadRequest("Current patron can not be found");
+                return BadRequest(exception.Message);
             }
         }
 
@@ -68,10 +68,10 @@ namespace Public_Library.Controllers
                 Log.ForContext<PatronController>().Information("Requested all patrons data");
                 return Ok(patronMin);
             }
-            catch
+            catch (Exception exception)
             {
                 Log.ForContext<PatronController>().Error("Requested all patrons data, returned error");
-                return StatusCode(500);
+                return StatusCode(500, exception.Message);
             }
         }
 
@@ -84,14 +84,14 @@ namespace Public_Library.Controllers
                 PatronWithMinimalizedBooksAndIssues patronMin =
                     _mapper.Map<PatronWithMinimalizedBooksAndIssues>(patron);
                 Log.ForContext<PatronController>().Information("Requested patron {patron} by id {id}",
-                                            patron, id);
+                    patron, id);
                 return Ok(patronMin);
             }
-            catch
+            catch (Exception exception)
             {
                 Log.ForContext<PatronController>().Information("Requested patron by id {id}, " +
                     "patron was not found");
-                return NotFound("Patron was not found");
+                return NotFound(exception.Message);
             }
         }
 
@@ -104,16 +104,16 @@ namespace Public_Library.Controllers
                 Log.ForContext<PatronController>().Information("Requested patron Id, returned {id}", id);
                 return Ok(id);
             }
-            catch
+            catch(Exception exception)
             {
                 Log.ForContext<PatronController>().Information("Requested patron Id, patron {@patron} not found",
-                                        new PatronInputModel { Name = name, Email = email, Surname = surname});
-                return NotFound();
+                    new PatronInputModel { Name = name, Email = email, Surname = surname});
+                return NotFound(exception.Message);
             }
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> DeleteById(string id)
+        public async Task<IActionResult> RemoveById(string id)
         {
             try
             {
@@ -121,11 +121,11 @@ namespace Public_Library.Controllers
                 Log.ForContext<PatronController>().Information("Deleted patron with id {id}", id);
                 return Ok();
             }
-            catch
+            catch(Exception exception)
             {
                 Log.ForContext<PatronController>().Information("Requested deletion of patron with id {id}, " +
                     "patron was not found", id);
-                return BadRequest();
+                return BadRequest(exception.Message);
             }
         }
     }

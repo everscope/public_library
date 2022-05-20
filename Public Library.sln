@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Public Library", "Public Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Public Library.LIB", "Public Library.LIB\Public Library.LIB.csproj", "{E4735A42-27F0-4A8C-83AD-ABC462F60E5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Public Library.DAL", "Public Library.DAL\Public Library.DAL.csproj", "{4044DB86-3A5A-475B-92BA-DA9B85F49497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Public Library.DAL", "Public Library.DAL\Public Library.DAL.csproj", "{4044DB86-3A5A-475B-92BA-DA9B85F49497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Public Library.Tests", "Public Library.Tests\Public Library.Tests.csproj", "{CAAF652A-8CA3-4954-8900-854B66587F06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4044DB86-3A5A-475B-92BA-DA9B85F49497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4044DB86-3A5A-475B-92BA-DA9B85F49497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4044DB86-3A5A-475B-92BA-DA9B85F49497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAF652A-8CA3-4954-8900-854B66587F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAF652A-8CA3-4954-8900-854B66587F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAF652A-8CA3-4954-8900-854B66587F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAF652A-8CA3-4954-8900-854B66587F06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

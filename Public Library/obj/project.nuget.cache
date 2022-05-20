@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ZTUA8Yx+dzgDpKU4x/SgpxMJWYiHW/Aj+jp/wrGU/yICDcqGcJjyhfjUTdxop9x2LN6WR47jbSZg1XOwVid5/g==",
+  "dgSpecHash": "xzp0biTZi0irPw+fgbCmr1vg8GmSKKMOPsCEhbhMWBfWcuLJBeT3Xj39edtrfCLLgx6yKgvXMPBNwnf1KdsKbg==",
   "success": true,
   "projectFilePath": "F:\\Projects\\Public Library\\Public Library\\Public Library\\Public Library.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\im242\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\im242\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.8\\microsoft.aspnet.webapi.client.5.2.8.nupkg.sha512",
     "C:\\Users\\im242\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.8\\microsoft.aspnet.webapi.core.5.2.8.nupkg.sha512",

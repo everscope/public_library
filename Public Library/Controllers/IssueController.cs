@@ -15,7 +15,7 @@ namespace Public_Library.Controllers
         private readonly IDatabaseReader _databaseReader;
 
         public IssueController(IMapper mapper,
-                                IDatabaseReader databaseReader)
+            IDatabaseReader databaseReader)
         {
             _mapper = mapper;
             _databaseReader = databaseReader;
@@ -27,11 +27,13 @@ namespace Public_Library.Controllers
             try
             {
                 await _databaseReader.AddIssue(issue);
+                Log.ForContext<IssueController>().Information("Issue {issue} has been added", issue);
                 return Ok();
             }
-            catch
+            catch(Exception exception)
             {
-                return BadRequest();
+                Log.ForContext<IssueController>().Error("Error occured while adding issue {issue}", issue);
+                return StatusCode(500, exception.Message);
             }
         }
 
@@ -45,10 +47,10 @@ namespace Public_Library.Controllers
                 Log.ForContext<IssueController>().Information("Requested all issues.");
                 return Ok(issueDisplayModels);
             }
-            catch
+            catch(Exception exception)
             {
                 Log.ForContext<IssueController>().Error("Requested all issues, returned error.");
-                return StatusCode(500);
+                return StatusCode(500, exception.Message);
             }
         }
 
@@ -58,11 +60,14 @@ namespace Public_Library.Controllers
             try
             {
                 await _databaseReader.CloseIssue(id);
+                Log.ForContext<IssueController>().Information("Issue with id {id} was closed", id);
                 return Ok();
             }
-            catch
+            catch(Exception exception)
             {
-                return BadRequest();
+                Log.ForContext<IssueController>().Information("Issue with id {id} was tried to close, " +
+                    "but was not found");
+                return BadRequest(exception.Message);
             }
         }
     }
