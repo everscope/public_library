@@ -37,7 +37,7 @@ namespace Public_Library.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllIssues()
         {
             try
             {
