@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Public_Library.LIB;
+﻿using Microsoft.AspNetCore.Mvc;
+using Public_Library.LIB.Interfaces;
 
 namespace Public_Library.Controllers
 {
@@ -8,13 +7,10 @@ namespace Public_Library.Controllers
     [Route("attendance/")]
     public class AttendanceController : Controller
     {
-        private readonly IMapper _mapper;
-        private readonly AttendanceAmount _attendanceAmount;
+        private readonly IAttendanceAmount _attendanceAmount;
 
-        public AttendanceController(IMapper mapper,
-                                AttendanceAmount attendanceAmount)
+        public AttendanceController(IAttendanceAmount attendanceAmount)
         {
-            _mapper = mapper;
             _attendanceAmount = attendanceAmount;
         }
 

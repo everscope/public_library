@@ -20,7 +20,7 @@ builder.Services.AddDbContext<PublicLibraryContext>(options
     => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddTransient<IDatabaseReader, DatabaseReader>();
 builder.Services.AddAutoMapper(typeof(Program));
-builder.Services.AddSingleton<AttendanceAmount>();
+builder.Services.AddSingleton<IAttendanceAmount, AttendanceAmount>();
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()

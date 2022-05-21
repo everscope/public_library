@@ -1,6 +1,8 @@
-﻿namespace Public_Library.LIB
+﻿using Public_Library.LIB.Interfaces;
+
+namespace Public_Library.LIB
 {
-    public class AttendanceAmount
+    public class AttendanceAmount: IAttendanceAmount
     {
         private static int Amount;
         
@@ -25,7 +27,6 @@
         {
             return Amount;
         }
-
 
     }
 }
