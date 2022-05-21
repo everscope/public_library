@@ -22,9 +22,9 @@ namespace Public_Library.Controllers
                 _attendanceAmount.Increase();
                 return Ok();
             }
-            catch
+            catch(Exception exception)
             {
-                return StatusCode(500);
+                return StatusCode(500, exception.Message);
             }
         }
 
@@ -36,9 +36,9 @@ namespace Public_Library.Controllers
                 _attendanceAmount.Decrease();
                 return Ok();
             }
-            catch
+            catch (Exception exception)
             {
-                return StatusCode(500);
+                return StatusCode(500, exception.Message);
             }
         }
 
@@ -50,9 +50,9 @@ namespace Public_Library.Controllers
                 int amount = _attendanceAmount.Get();
                 return Ok(amount);
             }
-            catch
+            catch (Exception exception)
             {
-                return StatusCode(500);
+                return StatusCode(500, exception.Message);
             }
         }
     }
