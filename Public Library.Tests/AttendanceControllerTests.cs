@@ -10,7 +10,7 @@ namespace Public_Library.Tests
     public class AttendanceControllerTests
     {
         [Fact]
-        public void IncreaseAmount_ShouldReturnOk()
+        public void IncreaseAmount_ReturnsOk()
         {
             var attendanceAmount = new Mock<IAttendanceAmount>();
             attendanceAmount.Setup(p => p.Increase());
@@ -25,7 +25,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public void IncreaseAmount_ShouldReturnStatusCode500()
+        public void IncreaseAmount_ThrownException_ReturnStatusCode500()
         {
             var attendanceAmount = new Mock<IAttendanceAmount>();
             attendanceAmount.Setup(p => p.Increase()).Throws(new Exception());
@@ -40,7 +40,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public void DecreaseAmount_ShouldReturnOk()
+        public void DecreaseAmount_ReturnsOk()
         {
             var attendanceAmount = new Mock<IAttendanceAmount>();
             attendanceAmount.Setup(p => p.Decrease());
@@ -55,7 +55,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public void DecreaseAmount_ShouldReturnStatusCode500()
+        public void DecreaseAmount_ThrownException_ReturnsStatusCode500()
         {
             var attendanceAmount = new Mock<IAttendanceAmount>();
             attendanceAmount.Setup(p => p.Decrease()).Throws(new Exception());
@@ -70,7 +70,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public void GetAmount_ShouldReturnOkWithValue()
+        public void GetAmount_ReturnsOkWithValue()
         {
             int value = 4;
 
@@ -88,7 +88,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public void GetAmount_ShouldReturnStatusCode500()
+        public void GetAmount_ThrownException_ReturnsStatusCode500()
         {
             var attendanceAmount = new Mock<IAttendanceAmount>();
             attendanceAmount.Setup(p => p.Get()).Throws(new Exception());

@@ -7,7 +7,7 @@ namespace Public_Library.Tests
     public class IdTests
     {
         [Fact]
-        public void Generate_ShouldReturnValidId()
+        public void Generate_ReturnsValidId()
         {
             string id = Id.Generate();
 

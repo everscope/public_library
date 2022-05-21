@@ -12,7 +12,7 @@ namespace Public_Library.Tests
     public class IssueControllerTests
     {
         [Fact]
-        public async void CreateIssue_ShouldReturnOk()
+        public async void CreateIssue_NewIssue_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -28,7 +28,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void CreateIssue_ShouldReturnStatusCode500()
+        public async void CreateIssue_ThrownException_ReturnsStatusCode500()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -45,7 +45,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllIssues_ShouldReturnOkWithResult()
+        public async void GetAllIssues_ReturnsOkWithResult()
         {
             List<Issue> issues = new()
             {
@@ -102,7 +102,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllIssues_ShouldReturnStatusCode500()
+        public async void GetAllIssues_ThrownException_ReturnsStatusCode500()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -118,7 +118,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void CloseIssue_ShouldReturnOk()
+        public async void CloseIssue_ValidIssue_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -134,7 +134,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void CloseIssue_ShouldReturnBadRequest()
+        public async void CloseIssue_NotExistingIssue_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();

@@ -11,7 +11,7 @@ namespace Public_Library.Tests
     public class BookControllerTests
     {
         [Fact]
-        public async void CreateBook_ShouldReturnOk()
+        public async void CreateBook_NewBook_ReturnsOk()
         {
             var book = new BookInputModel()
             {
@@ -40,7 +40,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void CreateBook_ShouldReturnBadRequest()
+        public async void CreateBook_NewBookThrownException_ReturnsBadRequest()
         {
             var book = new BookInputModel()
             {
@@ -70,7 +70,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemoveBook_ShouldReturnOk()
+        public async void RemoveBook_ExistringBook_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -86,7 +86,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemoveNotExtistingBook_ShouldReturnBadRequest()
+        public async void RemoveBook_NotExisting_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -103,7 +103,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetBookId_ReturnsOkWithId()
+        public async void GetBookId_ExistingBook_ReturnsOkWithId()
         {
             string[] id = { "id" };
             var mapper = new Mock<IMapper>();
@@ -122,7 +122,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetBookId_ReturnsBadRequest()
+        public async void GetBookId_NotExistingBook_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
 
@@ -139,7 +139,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllBooks_ShouldReturnOkWithResult()
+        public async void GetAllBooks_ReturnsOkWithResult()
         {
             List<BookWithMinimalizedPatronAndIssues> books = new()
             {
@@ -175,7 +175,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllBooks_ReturnsBadRequest()
+        public async void GetAllBooks_ThrownException_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -190,7 +190,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void MoveBook_ShouldReturnOk()
+        public async void MoveBook_ExistingBook_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -205,7 +205,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void MoveBook_ShouldReturnBadRequest()
+        public async void MoveBook_NotExistingBook_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -221,7 +221,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void SetBookStatus_ShouldReturnOk()
+        public async void SetBookStatus_ExistingBook_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -237,7 +237,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void SetBookStatus_ShouldReturnBadRequest()
+        public async void SetBookStatus_NotExistingBook_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -253,7 +253,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetBookById_ShouldReturnOkWithResult()
+        public async void GetBookById_ExistingBook_ReturnsOkWithResult()
         {
             string id = "bookId";
             Book book = new()

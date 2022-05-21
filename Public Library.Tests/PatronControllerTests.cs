@@ -12,7 +12,7 @@ namespace Public_Library.Tests
     public class PatronControllerTests
     {
         [Fact]
-        public async void CreatePatron_ShouldReturnOk()
+        public async void CreatePatron_NewPatron_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             mapper.Setup(p => p.Map<Patron>(It.IsAny<PatronInputModel>()));
@@ -29,7 +29,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void CreatePatron_ShouldReturnBadRequest()
+        public async void CreatePatron_ExistingPatron_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             mapper.Setup(p => p.Map<Patron>(It.IsAny<PatronInputModel>()));
@@ -47,7 +47,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemovePatron_ShouldReturnOk()
+        public async void RemovePatron_ExistingPatron_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             mapper.Setup(p => p.Map<Patron>(It.IsAny<PatronInputModel>()));
@@ -64,7 +64,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemovePatron_ShouldReturnBadRequest()
+        public async void RemovePatron_NotExistingPatron_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             mapper.Setup(p => p.Map<Patron>(It.IsAny<PatronInputModel>()));
@@ -82,7 +82,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllPatrons_ShouldReturnOkWithResult()
+        public async void GetAllPatrons_ReturnsOkWithResult()
         {
             List<Patron> patrons = new()
             {
@@ -137,7 +137,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetAllPatrons_ShouldReturnStatusCode500()
+        public async void GetAllPatrons_ThrownException_ReturnsStatusCode500()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -153,7 +153,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetPatronById_ShouldReturnOkWithReslut()
+        public async void GetPatronById_ExistingPatron_ReturnsOkWithReslut()
         {
             string id = "patronId";
             Patron patron = new()
@@ -188,7 +188,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetPatronById_ShouldReturnNotFound()
+        public async void GetPatronById_NotExistingPatron_ReturnsNotFound()
         {
             string id = "patronId";
             var mapper = new Mock<IMapper>();
@@ -205,7 +205,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetId_ShouldReturnOkWithResult()
+        public async void GetId_ExistingPatron_ReturnsOkWithResult()
         {
             string id = "patronId";
             var mapper = new Mock<IMapper>();
@@ -224,7 +224,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void GetId_ShouldReturnNotFound()
+        public async void GetId_NotExistingPatron_ReturnsNotFound()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -241,7 +241,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemovePatronById_ShouldReturnOk()
+        public async void RemovePatronById_ExistingPatron_ReturnsOk()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
@@ -257,7 +257,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void RemovePatronById_ShouldReturnBadRequest()
+        public async void RemovePatronById_ExistingPatron_ReturnsBadRequest()
         {
             var mapper = new Mock<IMapper>();
             var databaseReader = new Mock<IDatabaseReader>();
