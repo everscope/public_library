@@ -1,0 +1,1 @@
+{"Timestamp":"2022-05-19T18:12:30.6488174+02:00","Level":"Information","MessageTemplate":"Book was requested by id {id} and can not be found","Properties":{"id":"asd","SourceContext":"Public_Library.Controllers.BookController"}}

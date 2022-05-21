@@ -17,9 +17,9 @@ namespace Public_Library.DAL
         {
 
             Patron? patronToCreate = _context.Patrons.FirstOrDefault(p => p.Email == patron.Email
-                                       && p.Name == patron.Name
-                                       && p.Surname == patron.Surname
-                                       && p.Password == patron.Password);
+                && p.Name == patron.Name
+                && p.Surname == patron.Surname
+                && p.Password == patron.Password);
 
             if (patronToCreate != null)
             {
@@ -35,9 +35,9 @@ namespace Public_Library.DAL
         public async Task DeletePatronAsync(Patron patron)
         {
             Patron patronToDelete = _context.Patrons.Single(p => p.Email == patron.Email
-                                       && p.Name == patron.Name
-                                       && p.Surname == patron.Surname
-                                       && p.Password == patron.Password);
+                && p.Name == patron.Name
+                && p.Surname == patron.Surname
+                && p.Password == patron.Password);
             _context.Patrons.Remove(patronToDelete);
             await _context.SaveChangesAsync();
         }
@@ -64,8 +64,8 @@ namespace Public_Library.DAL
         public async Task<string> GetPatronIdAsync(string name, string surname, string email)
         {
             var patron = await _context.Patrons.SingleAsync(p => p.Surname == surname
-                                           && p.Name == name
-                                           && p.Email == email);
+                && p.Name == name
+                && p.Email == email);
             return patron.Id;
         }
 
@@ -87,8 +87,8 @@ namespace Public_Library.DAL
         public async Task<string[]> GetBookIdAsync(BookInputModel book)
         {
             List<Book> books = await _context.Books.Where(p => p.Title == book.Title
-                                        && p.Author == book.Author)
-                                        .ToListAsync();
+                && p.Author == book.Author)
+                .ToListAsync();
 
             if(books.Count == 0)
             {
@@ -126,7 +126,7 @@ namespace Public_Library.DAL
 
         public async Task MoveBookAsync(string id, string placement)
         {
-            var bookToChange =await _context.Books.SingleAsync(p => p.Id == id);
+            var bookToChange = await _context.Books.SingleAsync(p => p.Id == id);
 
             bookToChange.Placement = placement;
 
