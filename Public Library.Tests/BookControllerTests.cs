@@ -11,7 +11,7 @@ namespace Public_Library.Tests
     public class BookControllerTests
     {
         [Fact]
-        public async void AddNewBook_ShouldReturnOk()
+        public async void CreateBook_ShouldReturnOk()
         {
             var book = new BookInputModel()
             {
@@ -32,7 +32,7 @@ namespace Public_Library.Tests
 
             BookController bookController = new BookController(mapper.Object, databaseReader.Object);
 
-            var responce = await bookController.AddBook(book);
+            var responce = await bookController.CreateBook(book);
             var result = responce as OkResult;
 
             result.Should().NotBeNull();
@@ -40,7 +40,7 @@ namespace Public_Library.Tests
         }
 
         [Fact]
-        public async void AddBook_ShouldReturnBadRequest()
+        public async void CreateBook_ShouldReturnBadRequest()
         {
             var book = new BookInputModel()
             {
@@ -62,7 +62,7 @@ namespace Public_Library.Tests
 
             BookController bookController = new BookController(mapper.Object, databaseReader.Object);
 
-            var responce = await bookController.AddBook(book);
+            var responce = await bookController.CreateBook(book);
             var result = responce as ObjectResult;
 
             result.Should().NotBeNull();

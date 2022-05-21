@@ -112,7 +112,7 @@ namespace Public_Library.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> RemoveById(string id)
+        public async Task<IActionResult> RemovePatronById(string id)
         {
             try
             {

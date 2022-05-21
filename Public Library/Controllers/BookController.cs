@@ -21,7 +21,7 @@ namespace Public_Library.Controllers
         }
 
         [HttpPost("new")]
-        public async Task<IActionResult> AddBook(BookInputModel book)
+        public async Task<IActionResult> CreateBook(BookInputModel book)
         {
             Book newBook = _mapper.Map<Book>(book);
             try
