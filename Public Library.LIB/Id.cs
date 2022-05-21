@@ -1,4 +1,6 @@
-﻿namespace Public_Library.LIB
+﻿using System.Text;
+
+namespace Public_Library.LIB
 {
     public static class Id
     {
@@ -7,14 +9,15 @@
         public static string Generate()
         {
             Random random = new Random();
-            string id = string.Empty;
+            StringBuilder id = new StringBuilder();
+            //string id = string.Empty;
 
             for(int i = 0; i < 15; i++)
             {
-                id+= _charsForId[random.Next(0, _charsForId.Length)];
+                id.Append(_charsForId[random.Next(0, _charsForId.Length)]);
             }
 
-            return id;
+            return id.ToString();
         }
     }
 }

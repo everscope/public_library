@@ -11,10 +11,10 @@ namespace Public_Library.Tests
 {
     public class DatabaseReaderTests
     {
-        //[Fact]
-        //public async void AddPatronAsync_ShouldAddPatron()
-        //{
-            
-        //}
+        [Fact]
+        public async void AddPatronAsync_ShouldAddPatron()
+        {
+
+        }
     }
 }
