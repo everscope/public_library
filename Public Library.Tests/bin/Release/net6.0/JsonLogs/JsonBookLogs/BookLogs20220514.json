@@ -1,2 +1,0 @@
-{"Timestamp":"2022-05-14T17:21:10.6065734+02:00","Level":"Information","MessageTemplate":"Patron {@Patron} has been created","Properties":{"Patron":{"Name":"string","Surname":"string","Email":"string","Password":"string"},"SourceContext":"Public_Library.Controllers.PatronController"}}
-{"Timestamp":"2022-05-14T17:21:18.6606312+02:00","Level":"Information","MessageTemplate":"Patron {@Patron} can not be created","Properties":{"Patron":{"Name":"string","Surname":"string","Email":"string","Password":"string"},"SourceContext":"Public_Library.Controllers.PatronController"}}
