@@ -206,3 +206,4 @@ F:\Projects\Public Library\Public Library\Public Library.Tests\obj\Release\net6.
 F:\Projects\Public Library\Public Library\Public Library.Tests\bin\Release\net6.0\JsonLogs\JsonAllLogs\AllLogs20220520.json
 F:\Projects\Public Library\Public Library\Public Library.Tests\bin\Release\net6.0\JsonLogs\JsonBookLogs\BookLogs20220520.json
 F:\Projects\Public Library\Public Library\Public Library.Tests\bin\Release\net6.0\JsonLogs\JsonPatronLogs\PatronLogs20220520.json
+F:\Projects\Public Library\Public Library\Public Library.Tests\bin\Release\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
