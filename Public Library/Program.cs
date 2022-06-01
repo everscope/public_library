@@ -33,15 +33,15 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonAllLogs/AllLogs.json",
                                                 rollingInterval: RollingInterval.Day)
     .WriteTo.Logger(patronLogger => patronLogger
-                    .Filter.ByIncludingOnly(Matching.FromSource<PatronController>()))
-                    .WriteTo.File("Logs/PatronLogs/PatronLog.txt", rollingInterval: RollingInterval.Day)
-                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonPatronLogs/PatronLogs.json", 
-                                                rollingInterval: RollingInterval.Day)
+        .Filter.ByIncludingOnly(Matching.FromSource<PatronController>()))
+        .WriteTo.File("Logs/PatronLogs/PatronLog.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonPatronLogs/PatronLogs.json", 
+            rollingInterval: RollingInterval.Day)
     .WriteTo.Logger(bookLogger => bookLogger
-                    .Filter.ByIncludingOnly(Matching.FromSource<BookController>()))
-                    .WriteTo.File("Logs/BookLogs/BookLog.txt", rollingInterval: RollingInterval.Day)
-                    .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonBookLogs/BookLogs.json",
-                                                rollingInterval: RollingInterval.Day)
+        .Filter.ByIncludingOnly(Matching.FromSource<BookController>()))
+        .WriteTo.File("Logs/BookLogs/BookLog.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File(new JsonFormatter(), "JsonLogs/JsonBookLogs/BookLogs.json",
+            rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var app = builder.Build();
