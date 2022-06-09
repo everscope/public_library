@@ -47,10 +47,10 @@ Log.Logger = new LoggerConfiguration()
 var app = builder.Build();
 
 
-using (var db = new PublicLibraryContext(new DbContextOptionsBuilder()
-    .UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")).Options))
+using (var scope = app.Services.CreateScope())
 {
-    db.Database.EnsureCreated();
+    var dataContext = scope.ServiceProvider.GetRequiredService<DreamsContext>();
+    dataContext.Database.EnsureCreated();
 }
 
     // Configure the HTTP request pipeline.
