@@ -49,7 +49,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dataContext = scope.ServiceProvider.GetRequiredService<DreamsContext>();
+    var dataContext = scope.ServiceProvider.GetRequiredService<PublicLibraryContext>();
     dataContext.Database.EnsureCreated();
 }
 
