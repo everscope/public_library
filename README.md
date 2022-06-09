@@ -140,20 +140,4 @@ You can test web API with swagger, but also you can send the next requests:
 -   FluentAssertions
 -   Moq
   
-
- - Razor Pages
-
-   
-
- - HTML + CSS + JQuerry
-
-   
-
- - XUnit
-
-   
-   
-
- - FluentAssertions
-
   
