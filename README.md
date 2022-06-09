@@ -1,7 +1,7 @@
 
 # Public Library
 
-Public Library is ASP.NET Core Web API created to do book traking and borrowing and tracking patrons for a public library.
+Public Library is ASP.NET Core Web API created to do book tracking and borrowing and tracking patrons for a public library.
 
 ## How to run
 
@@ -28,7 +28,7 @@ In the console, among logs, you will be able to find this text with the address:
 
 Open your browser and go to the first address + "/swagger" (in this case `localhost:7079/swagger`) or second address + "/swagger" (`localhost:5079/swagger`). (notice, that in your case your ports can be different).
 
-Instead of using swagger you can use any software you like to send requests to adresses above (Postman, for example)
+Instead of using swagger, you can use any software you like to send requests to the addresses above (Postman, for example)
 
 When you finish, go back to the console and press `Ctrl+C` to stop the application.
 
@@ -36,15 +36,15 @@ When you finish, go back to the console and press `Ctrl+C` to stop the applicati
 
 ## How to use:
 
-You can test web api with swagger, but also you can send next requests:
+You can test web API with swagger, but also you can send the next requests:
 
  - #### Attendance/:
    
-	- `attendance/increase` - addes one visitor to visitors ammount
+	- `attendance/increase` - adds one visitor to visitors' amount
    
-   - `attendance/decrease` - removes one visitor from visitors ammount
+   - `attendance/decrease` - removes one visitor from visitors' amount
    
-	-  `attendance/get` - returns current ammount of visitors
+	-  `attendance/get` - returns the current amount of visitors
 
   
 
