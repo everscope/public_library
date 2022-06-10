@@ -1,7 +1,7 @@
 
 # Public Library
 
-Public Library is ASP.NET Core Web API created to do book tracking and borrowing and tracking patrons for a public library.
+Public Library is ASP.NET Core REST API created to do book tracking and borrowing and tracking patrons for a public library.
 
 ## How to run
 
